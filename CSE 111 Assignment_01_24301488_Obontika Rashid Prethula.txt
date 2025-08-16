@@ -1,0 +1,511 @@
+ 
+
+//TASK1
+
+import java.util.Scanner;
+public class Task1 {
+    public static void main(String[] args)
+ {
+        Scanner sc = new Scanner(System.in);
+        int sum = 0;
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+        int count = 0;
+        System.out.println("Enter 10 numbers:");
+
+        for (int i = 0; i < 10; i++)
+        {
+            int num = sc.nextInt();
+               if (num > 0 && num % 2 != 0) 
+               {
+                sum += num;
+                if (num < min) 
+                {
+                    min = num;
+                }
+                if (num > max) 
+                  {
+                    max = num;
+                  }
+                count++;
+                }
+        }
+
+        if (count > 0) 
+        {
+            double average = (double) sum / count;
+            System.out.println("Sum = " + sum);
+            System.out.println("Minimum = " + min);
+            System.out.println("Maximum = " + max);
+            System.out.println("Average = " + average);
+        }
+        else 
+        {
+            System.out.println("No odd positive numbers found");
+        }
+
+        sc.close();
+    }
+}
+
+//TASK2
+
+import java.util.Scanner;
+public class Task1 {
+
+public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter two integers:");
+        int start = sc.nextInt();
+        int end = sc.nextInt();
+
+      
+        if (start > end) {
+            int x = start;
+            start = end;
+            end = x;
+        }
+
+       
+        int Count = 0;
+     int n=1;
+        
+     int numb_of_div=0;
+
+        for (int i = start ; i < end; i++) {
+            if (i%n==0) {
+              numb_of_div++;
+         } 
+         n++ ;         
+        }
+        if(numb_of_div==2){
+           Count++;
+            }
+        }
+
+       
+        System.out.println("There are " +Count + " prime numbers between " + start + " and " + end + ".");
+
+        sc.close();
+    }
+}
+
+
+
+//TASK3
+import java.util.Scanner;
+public class Task {
+    public static void main(String[] args) {
+        
+        Scanner abc = new Scanner(System.in);
+        System.out.print("Enter the first string: ");
+        String firstString = abc.nextLine();
+        System.out.print("Enter the second string: ");
+        String secondString = abc.nextLine();
+        String concatenatedString = firstString + " " + secondString;
+        
+        int sum = 0;
+        
+         for (char c : concatenatedString.toCharArray())
+         {
+            
+            if (Character.isAlphabetic(c))
+            {
+                sum += (int) c; 
+            }
+          }
+          
+
+//TASK4
+import java.util.Scanner;
+public class Task {
+    public static void main(String[] args) {
+        Scanner abc = new Scanner(System.in);
+        System.out.print("Enter a string in small letters: ");
+        String input = abc.nextLine();
+        for (char ch : input.toCharArray()) {
+           
+            if (ch == 'a')
+            {
+                System.out.print('z');
+            } else {
+                
+                System.out.print((char) (ch - 1));
+            }
+        }
+        
+        
+        abc.close();
+    }
+}
+
+
+//TASK5
+
+import java.util.Scanner;
+
+public class Task {
+    public static void main(String[] args) {
+       
+        Scanner abc = new Scanner(System.in);
+        
+        System.out.print("Enter the length of the array: ");
+        int length = abc.nextInt();
+        
+        int[] array = new int[length];
+        
+        System.out.println("Enter " + length + " integers:");
+        for (int i = 0; i < length; i++)
+        {
+            array[i] = abc.nextInt();
+        }
+        int start = 0;
+        int end = length - 1;
+        while (start < end) 
+        {
+          
+            int x = array[start];
+            array[start] = array[end];
+            array[end] = x;
+            
+            
+            start++;
+            end--;
+        }
+        
+        
+        System.out.print("Reversed array: ");
+        for (int i = 0; i < length; i++) 
+        {
+            System.out.print(array[i] + " ");
+        }
+        System.out.println();
+        abc.close();
+    }
+}
+    
+
+
+
+//TASK6 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Task {
+    public static void main(String[] args) {
+        
+        Scanner abc = new Scanner(System.in);
+        
+        
+        System.out.print("Enter the number of elements (N): ");
+        int N = abc.nextInt();
+        
+        
+        int[] array = new int[N];
+        System.out.println("Enter " + N + " integers:");
+        for (int i = 0; i < N; i++)
+        {
+            array[i] = abc.nextInt();
+        }
+        
+       
+        Map<Integer, Integer> countMap = new HashMap<>();
+        for (int num : array)
+        {
+            countMap.put(num, countMap.getOrDefault(num, 0) + 1);
+        }
+        
+        
+        for (Map.Entry<Integer, Integer> entry : countMap.entrySet()) 
+        {
+            System.out.println(entry.getKey() + " - " + entry.getValue() + " times");
+        }
+        
+        
+      abc.close();
+    }
+
+
+
+//Task7
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class Task {
+    public static void main(String[] args) {
+        
+        Scanner abc = new Scanner(System.in);
+
+       
+        System.out.print("Enter the length of the array (N): ");
+        int N = abc.nextInt();
+
+        
+        double[] array = new double[N];
+        
+       
+        System.out.println("Please enter the elements of the array:");
+        for (int i = 0; i < N; i++) {
+            array[i] = abc.nextDouble();
+        }
+
+        
+        ArrayList<Double> newArray = new ArrayList<>();
+
+      
+        for (int i = 0; i < N; i++) {
+            
+            if (newArray.isEmpty() || array[i] != newArray.get(newArray.size() - 1)) {
+                newArray.add(array[i]);
+            }
+        }
+
+        
+        System.out.print("New Array: ");
+        for (double num : newArray) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        
+        int removedCount = N - newArray.size();
+        System.out.println("Removed elements: " + removedCount);
+
+        
+       abc.close();
+    }
+}
+
+
+
+//Task8
+import java.util.Scanner;
+public class Task {
+public static void main(String[] args) 
+{
+        
+        Scanner abc = new Scanner(System.in);
+        
+        System.out.print("Enter number of rows: ");
+        int rows = abc.nextInt();
+        System.out.print("Enter number of columns: ");
+        int columns = abc.nextInt();
+        int[][] twoDArray = new int[rows][columns];
+        
+       System.out.println("Enter elements of the 2D array:");
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < columns; j++) 
+            {
+                twoDArray[i][j] = abc.nextInt();
+            }
+        }
+        
+        
+        System.out.println("2D Array:");
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < columns; j++) 
+            {
+                System.out.print(twoDArray[i][j] + " ");
+            }
+            System.out.println();
+        }
+        
+        
+        int[] oneDArray = new int[rows * columns];
+        
+        
+        int index = 0;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                oneDArray[index++] = twoDArray[i][j];
+            }
+        }
+        
+        
+        System.out.print("1D Array: ");
+        for (int i = 0; i < oneDArray.length; i++)
+        {
+            System.out.print(oneDArray[i] + " ");
+        }
+        System.out.println();
+        
+        
+        abc.close();
+    }
+}
+
+
+
+
+
+//TASK9
+import java.util.Scanner;
+public class Task {
+    public static void main(String[] args) 
+    {
+        
+        Scanner abc = new Scanner(System.in);
+         System.out.print("Enter the size of the matrix (N): ");
+        int N = abc.nextInt();
+        
+      
+        int[][] matrix = new int[N][N];
+        
+      
+        System.out.println("Enter the elements of the matrix:");
+        for (int i = 0; i < N; i++) 
+        {
+            for (int j = 0; j < N; j++) 
+            {
+                matrix[i][j] = abc.nextInt();
+            }
+        }
+
+        
+        boolean flag = true;
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                if (i == j) {
+                    
+                    if (matrix[i][j] != 1) {
+                        flag = false;
+                        break;
+                    }
+                } else {
+                    
+                    if (matrix[i][j] != 0) {
+                        flag = false;
+                        break;
+                    }
+                }
+            }
+            
+            if (!flag) {
+                break;
+            }
+        }
+          if (flag) {
+            System.out.println("Identity Matrix");
+        } else {
+            System.out.println("Not an Identity Matrix");
+        }
+         abc.close();
+    }
+}
+
+
+
+
+//TASK10
+import java.util.Scanner;
+public class Task
+{
+    public static void main(String[] args)
+    {
+        Scanner abc = new Scanner(System.in);
+
+        int[][] grid = 
+        {
+            {0, 0, 10, 0, -1},
+            {0, -1, 0, 0, -1},
+            {-1, 0, -1, 0, 0},
+            {0, -1, 7, 0, -1},
+            {0, -1, 0, -1, 0}
+        };
+
+        
+        int Row = 3, Col = 2;
+        int movesLeft = 5;
+
+       
+        while (movesLeft > 0) 
+        {
+            System.out.println("Enter move (UP/DOWN/LEFT/RIGHT): ");
+            String move = abc.nextLine().toUpperCase().trim();  
+            
+            boolean validMove = false;
+
+            if (move.equals("UP")) 
+            {
+                if (Row > 0 && grid[Row - 1][Col] != -1)
+                {
+                    Row--;
+                    validMove = true;
+                }
+            } else if (move.equals("DOWN")) {
+                if (Row < 4 && grid[Row + 1][Col] != -1)
+                {
+                   Row++;
+                    validMove = true;
+                }
+            } 
+            else if (move.equals("LEFT"))
+            {
+                if (Col > 0 && grid[Row][Col - 1] != -1) 
+                {
+                    Col--;
+                    validMove = true;
+                }
+            } 
+            else if (move.equals("RIGHT"))
+            {
+                if (Col < 4 && grid[Row][Col + 1] != -1)
+                {
+                    Col++;
+                    validMove = true;
+                }
+            }
+            else
+            {
+                System.out.println("Invalid move! Please enter UP, DOWN, LEFT, or RIGHT.");
+                continue;
+            }
+
+          
+            if (!validMove)
+            {
+                System.out.println("Invalid move! You hit a mine or went out of bounds.");
+                break;
+            }
+
+            grid[Row][Col] = 7;
+            printGrid(grid);
+
+             if (grid[Row][Col] == 10)
+             {
+                System.out.println("Treasure found! You win!");
+                break;
+            } 
+             else if (grid[Row][Col] == -1)
+            {
+                System.out.println("Game over! You hit a mine.");
+                break;
+            }
+
+            movesLeft--;  
+            if (movesLeft == 0) 
+            {
+                System.out.println("Out of moves! You lose.");
+            }
+        }
+
+        abc.close();
+    }
+
+    
+    public static void printGrid(int[][] grid)
+    {
+        for (int[] row : grid) 
+        {
+            for (int cell : row) 
+            {
+                System.out.print(cell + "t");
+            }
+            System.out.println();
+        }
+    }
+}   
